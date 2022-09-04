@@ -79,7 +79,7 @@ function Sidebar() {
       <SidebarButton onClick={createChat}>Start a new chat</SidebarButton>
       {chatsSnapshot?.docs
         .filter((chat) => {
-          return chat && chat.data().users[1].startsWith(searchChat);
+          return chat && chat.data().users.toString().includes(searchChat);
         })
         .map((chat) => {
           return <Chat key={chat.id} id={chat.id} users={chat.data().users} />;
